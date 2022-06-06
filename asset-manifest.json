@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/drink/static/css/main.d1498a96.css",
+    "main.js": "/drink/static/js/main.fb563d82.js",
+    "index.html": "/drink/index.html",
+    "main.d1498a96.css.map": "/drink/static/css/main.d1498a96.css.map",
+    "main.fb563d82.js.map": "/drink/static/js/main.fb563d82.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d1498a96.css",
+    "static/js/main.fb563d82.js"
+  ]
+}
