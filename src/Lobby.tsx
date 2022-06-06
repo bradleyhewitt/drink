@@ -4,6 +4,7 @@ import {useQuery} from "react-query";
 import axios from "axios";
 import {BACKEND} from "./App";
 
+/*
 interface Player {
     name: string;
     jwt: string;
@@ -14,6 +15,7 @@ interface LobbyData {
     lobby_id: string;
     players: Player[];
 }
+ */
 
 function lobbyIcon(): JSX.Element {
     return (
