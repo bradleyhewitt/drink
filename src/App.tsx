@@ -16,9 +16,9 @@ function App() {
         <div className="content">
             <HashRouter basename={"/drink"}>
                 <Routes>
-                    <Route index element={<Landing />} />
-                    <Route path="lobby/:id" element={<Lobby />} />
-                    <Route path="rules" element={<Rules />} />
+                    <Route path="/" element={<Landing />} />
+                    <Route path="/lobby/:id" element={<Lobby />} />
+                    <Route path="/rules" element={<Rules />} />
                 </Routes>
             </HashRouter>
         </div>
