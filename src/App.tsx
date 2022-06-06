@@ -14,7 +14,7 @@ function App() {
   return (
       <QueryClientProvider client={queryClient}>
         <div className="content">
-            <HashRouter>
+            <HashRouter basename={"/drink"}>
                 <Routes>
                     <Route index element={<Landing />} />
                     <Route path="lobby/:id" element={<Lobby />} />
