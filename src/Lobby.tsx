@@ -45,7 +45,12 @@ function checkIcon(): JSX.Element {
 export default function Lobby() {
     const params = useParams();
     const {isLoading, isError, data} = useQuery(['lobby', params.id], () =>
-        axios.get(BACKEND + "lobby/" + params.id).then(res => res.data));
+        axios.get(BACKEND + "lobby/" + params.id).then(res => res.data), {
+        refetchOnMount: false,
+        refetchOnReconnect: false,
+        refetchOnWindowFocus: false,
+        retry: 2
+    });
     if (isError) {
         return <p className={"text"}>Error...</p>;
     } else if (isLoading) {
