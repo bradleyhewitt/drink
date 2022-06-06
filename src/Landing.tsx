@@ -1,17 +1,42 @@
 import './style/Landing.scss';
-import React from "react";
-import {JoinLobby} from "./JoinLobby";
-import {Link} from "react-router-dom";
+import React, {useState} from "react";
+import {Link, useNavigate} from "react-router-dom";
+import axios from "axios";
+import {BACKEND} from "./App";
+
+function generateCode(): string {
+    const chars: string = 'ABCDEFGHIJKLMNPQRSTUVWXYZ123456789';
+    let code: string = '';
+    for (let i: number = 0; i < 5; i++) {
+        let pos: number = Math.floor(Math.random() * chars.length);
+        code += chars[pos];
+    }
+    return code;
+}
 
 export default function Landing() {
-    function generateLobbyCode(): string {
-        const chars: string = 'ABCDEFGHIJKLMNPQRSTUVWXYZ123456789';
-        let code: string = '';
-        for (let i: number = 0; i < 5; i++) {
-            let pos: number = Math.floor(Math.random() * chars.length);
-            code += chars[pos];
+    const navigate = useNavigate();
+    const [code, setCode] = useState<string>(generateCode());
+    const [name, setName] = useState<string>("Anonymous");
+    function joinLobby(attemptCode: string): boolean {
+        if (attemptCode !== "") {
+            navigate("/lobby/" + attemptCode);
+            return true;
         }
-        return code;
+        return false;
+    }
+    async function createLobby(attemptCode: string, name: string): Promise<boolean> {
+        if (attemptCode !== "") {
+            axios.post(BACKEND + "lobby/" + attemptCode, {"name": name}).then(
+                res => {
+                    if (res.status === 200) {
+                        navigate("/lobby/" + attemptCode);
+                        return true;
+                    }
+                    console.log(res.status + ": " + res.statusText);
+                })
+        }
+        return false;
     }
     return (
         <div className={"boxed"}>
@@ -20,8 +45,18 @@ export default function Landing() {
                     Drink...
                 </p>
                 <div className={"landing-content"}>
-                    <JoinLobby />
-                    <Link to={"/lobby/" + generateLobbyCode()}><button className={"butt"}>Create Lobby</button></Link>
+                    <div className={"row-wrapper"}>
+                        <p className={"text"}>Code</p>
+                        <input className={"textbox"} type={"text"} placeholder={code} onChange={(e) => setCode(e.target.value)}/>
+                    </div>
+                    <div className={"row-wrapper"}>
+                        <p className={"text"}>Name</p>
+                        <input className={"textbox"} type={"text"} placeholder={name} onChange={(e) => setName(e.target.value)} />
+                    </div>
+                    <div className={"row-wrapper"}>
+                        <button className={"butt"} onClick={() => joinLobby(code)}>Join</button>
+                        <button className={"butt"} onClick={() => createLobby(code, name)}>Create</button>
+                    </div>
                     <Link to={"/rules"}><button className={"butt"}>Rules</button></Link>
                 </div>
             </div>
