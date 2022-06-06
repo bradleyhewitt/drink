@@ -18,14 +18,7 @@ export default function Landing() {
     const navigate = useNavigate();
     const [code, setCode] = useState<string>(generateCode());
     const [name, setName] = useState<string>("Anonymous");
-    function joinLobby(attemptCode: string): boolean {
-        if (attemptCode !== "") {
-            navigate("/lobby/" + attemptCode);
-            return true;
-        }
-        return false;
-    }
-    async function createLobby(attemptCode: string, name: string): Promise<boolean> {
+    async function joinLobby(attemptCode: string, name: string): Promise<boolean> {
         if (attemptCode !== "") {
             axios.post(BACKEND + "lobby/" + attemptCode, {"name": name}).then(
                 res => {
@@ -54,8 +47,7 @@ export default function Landing() {
                         <input className={"textbox"} type={"text"} placeholder={name} onChange={(e) => setName(e.target.value)} />
                     </div>
                     <div className={"row-wrapper"}>
-                        <button className={"butt"} onClick={() => joinLobby(code)}>Join</button>
-                        <button className={"butt"} onClick={() => createLobby(code, name)}>Create</button>
+                        <button className={"butt"} onClick={() => joinLobby(code, name)}>Join or Create</button>
                     </div>
                     <Link to={"/rules"}><button className={"butt"}>Rules</button></Link>
                 </div>
