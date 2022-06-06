@@ -56,7 +56,7 @@ export default function Lobby() {
     } else if (isLoading) {
         return <p className={"text"}>Loading...</p>
     }
-    if (data === {} || !data.hasOwnProperty("players")) {
+    if (data === {} || !data.hasOwnProperty("players") || !data.hasOwnProperty("lobby_id")) {
         return <p className={"text"}>No lobby found.</p>
     }
     return (
