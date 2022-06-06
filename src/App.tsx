@@ -1,7 +1,7 @@
 import React from 'react';
 import './style/App.scss';
 import Landing from "./Landing";
-import {HashRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Lobby from "./Lobby";
 import Rules from "./Rules";
 import {QueryClient, QueryClientProvider} from "react-query";
@@ -14,13 +14,13 @@ function App() {
   return (
       <QueryClientProvider client={queryClient}>
         <div className="content">
-            <HashRouter basename={"/drink"}>
+            <BrowserRouter basename={"/drink"}>
                 <Routes>
                     <Route path="/" element={<Landing />} />
-                    <Route path="/lobby/:id" element={<Lobby />} />
-                    <Route path="/rules" element={<Rules />} />
+                    <Route path="lobby/:id" element={<Lobby />} />
+                    <Route path="rules" element={<Rules />} />
                 </Routes>
-            </HashRouter>
+            </BrowserRouter>
         </div>
       </QueryClientProvider>
   );
