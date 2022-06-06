@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/drink/static/css/main.d1498a96.css",
-    "main.js": "/drink/static/js/main.fb563d82.js",
+    "main.js": "/drink/static/js/main.fc6ff1de.js",
     "index.html": "/drink/index.html",
     "main.d1498a96.css.map": "/drink/static/css/main.d1498a96.css.map",
-    "main.fb563d82.js.map": "/drink/static/js/main.fb563d82.js.map"
+    "main.fc6ff1de.js.map": "/drink/static/js/main.fc6ff1de.js.map"
   },
   "entrypoints": [
     "static/css/main.d1498a96.css",
-    "static/js/main.fb563d82.js"
+    "static/js/main.fc6ff1de.js"
   ]
 }
