@@ -16,7 +16,7 @@ function App() {
         <div className="content">
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<Landing />} />
+                    <Route index element={<Landing />} />
                     <Route path="lobby/:id" element={<Lobby />} />
                     <Route path="rules" element={<Rules />} />
                 </Routes>
