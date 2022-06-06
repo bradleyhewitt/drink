@@ -8,7 +8,7 @@ import {QueryClient, QueryClientProvider} from "react-query";
 
 const queryClient: QueryClient = new QueryClient();
 
-export const BACKEND: string = "http://drink-env.eba-3gejpmdd.us-west-2.elasticbeanstalk.com/";
+export const BACKEND: string = "https://drink.bradleyhewitt.com/";
 
 function App() {
   return (
