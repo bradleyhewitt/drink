@@ -60,8 +60,14 @@ export default function Lobby() {
         <div className={"boxed"}>
             <div className={"row-wrapper"}>{lobbyIcon()}<h1 className={"text"}>Lobby</h1><p className={"text"}>{data.lobby_id}</p></div>
             <div className={"row-wrapper"}>{playersIcon()}<h2 className={"text"} style={{textDecoration: "underline"}}>Players</h2></div>
-            {data.players.map((p: {name: string, score: number}) => {
-                return <div className={"row-wrapper"}>{checkIcon()}<p className={"text"}>{p.name}</p><p className={"text"} style={{color: "#AAAAAA"}}>{p.score}</p></div>;
+            {data.players.map((p: {name: string, score: number, ready: boolean}) => {
+                return (
+                    <div className={"row-wrapper"}>
+                        {p.ready && checkIcon()}
+                        <p className={"text"}>{p.name}</p>
+                        <p className={"text"} style={{color: "#AAAAAA"}}>{p.score}</p>
+                    </div>
+                );
             })}
         </div>
     );
