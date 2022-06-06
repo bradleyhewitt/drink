@@ -15,7 +15,7 @@ interface LobbyData {
     lobby_id: string;
     players: Player[];
 }
- */
+*/
 
 function lobbyIcon(): JSX.Element {
     return (
