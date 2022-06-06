@@ -1,7 +1,7 @@
 import React from 'react';
 import './style/App.scss';
 import Landing from "./Landing";
-import {BrowserRouter, HashRouter, Route, Routes} from "react-router-dom";
+import {HashRouter, Route, Routes} from "react-router-dom";
 import Lobby from "./Lobby";
 import Rules from "./Rules";
 import {QueryClient, QueryClientProvider} from "react-query";
